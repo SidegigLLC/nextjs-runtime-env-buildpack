@@ -33,3 +33,5 @@ mkdir -p "$profile_d_dir"
 # Prepend "zzzzz_" to force sort so it's the last profile script to run.
 # This helps to it to see env changes made by other profile scripts. 
 cp "$BP_DIR/.profile.d/inject_js_runtime_env.sh" "$profile_d_dir/zzzzz_inject_js_runtime_env.sh"
+
+rm -rf /app/node_modules
