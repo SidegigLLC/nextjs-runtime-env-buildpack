@@ -28,8 +28,9 @@ const env = Object.entries(process.env)
 
 const newContents = contents.replace(placeholder, "'" + JSON.stringify(env) + "'");
 
-fs.writeFileSync(filePath, newContents);
+fs.writeFileSync(filePath, newContents, { encoding: "utf-8" });
 
 console.log(prefix, pattern, dir, filePattern, filePath);
 console.log(newContents);
 console.log(JSON.stringify(env), JSON.stringify(process.env));
+console.log(fs.readFileSync(filePath, { encoding: "utf-8" }));
