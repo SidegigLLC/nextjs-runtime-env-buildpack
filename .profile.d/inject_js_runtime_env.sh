@@ -3,4 +3,4 @@
 # Debug, echo every command
 set -x
 
-node ./replaceEnv.js
+node /app/.heroku-js-runtime-env/eplaceEnv.js
