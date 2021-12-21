@@ -26,6 +26,10 @@ const env = Object.entries(process.env)
     return acc;
   }, {});
 
-fs.writeFileSync(filePath, contents.replace(placeholder, "'" + JSON.stringify(env) + "'"));
+const newContents = contents.replace(placeholder, "'" + JSON.stringify(env) + "'");
+
+fs.writeFileSync(filePath, newContents);
 
 console.log(prefix, pattern, dir, filePattern, filePath);
+console.log(newContents);
+console.log(JSON.stringify(env), JSON.stringify(process.env));
