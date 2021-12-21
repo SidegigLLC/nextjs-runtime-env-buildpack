@@ -20,7 +20,10 @@ fs.readdirSync(dir).forEach((path) => {
 const filePath = dir + "/" + file;
 const contents = fs.readFileSync(filePath, { encoding: "utf-8" });
 const env = Object.entries(process.env)
-  .filter(([key]) => !key.startsWith(prefix))
+  .filter(([key]) => {
+    console.log(key, key.startsWith(prefix));
+    return key.startsWith(prefix);
+  })
   .reduce((acc, [key, value]) => {
     acc[key.replace(prefix, "NEXT_PUBLIC")] = value;
     return acc;
